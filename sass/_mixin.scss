@@ -1,0 +1,42 @@
+$color: #c44e45;
+$font-size: 10px;
+
+// Headline Square
+@mixin turn {
+    -webkit-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+}
+
+@mixin size($w, $h:$w) {
+    width: $w;
+    height: $h;
+}
+
+@mixin border {
+    border-radius: 75px;
+    -webkit-border-radius: 75px;
+    -moz-border-radius: 75px;
+}
+
+@mixin breakpoint($point) {
+    @if $point==pc {
+        @media only screen and (max-width: 1280px) {
+            @content;
+        }
+    }
+    @else if $point==bigpc {
+        @media only screen and (min-width: 1200px) {
+            @content;
+        }
+    }
+    @else if $point==pad {
+        @media only screen and (max-width: 768px) {
+            @content;
+        }
+    }
+    @else if $point==mobile {
+        @media only screen and (max-width: 425px) {
+            @content;
+        }
+    }
+}
